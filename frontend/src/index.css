@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans bg-slate-50 text-zinc-900 transition-colors duration-300 antialiased;
+  }
+  
+  html.dark body {
+    @apply bg-[#080c14] text-slate-100;
+  }
+
+  /* Custom scrollbars */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-zinc-300 dark:bg-zinc-700 rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary-500;
+  }
+}
+
+@layer components {
+  /* ─── Glass Cards ─── */
+  .glass-card {
+    @apply bg-white/90 dark:bg-[#0f1623]/90 backdrop-blur-md border border-zinc-200/60 dark:border-white/[0.06] shadow-sm dark:shadow-none hover:border-primary-500/30 dark:hover:border-primary-500/25 transition-all duration-300;
+  }
+
+  .glass-card-dark {
+    @apply bg-[#0f1623]/80 backdrop-blur-md border border-white/[0.07] hover:border-primary-500/30 transition-all duration-300;
+  }
+
+  /* ─── Inputs ─── */
+  .glass-input {
+    @apply bg-white dark:bg-[#0f1829]/80 backdrop-blur-sm border border-zinc-200 dark:border-white/10 rounded-xl px-4 py-2.5 outline-none focus:ring-2 focus:ring-primary-500/60 focus:border-primary-500/60 transition-all text-zinc-900 dark:text-slate-100 placeholder:text-zinc-400 dark:placeholder:text-slate-500;
+  }
+
+  .glass-input option {
+    @apply bg-white dark:bg-[#111827] text-zinc-900 dark:text-slate-100;
+  }
+
+  select.glass-input {
+    @apply text-zinc-900 dark:text-slate-100;
+  }
+
+  textarea.glass-input {
+    @apply text-zinc-900 dark:text-slate-100;
+  }
+
+  /* ─── Buttons ─── */
+  .btn-primary {
+    @apply bg-gradient-to-r from-primary-500 to-primary-600 text-zinc-950 font-bold px-5 py-2.5 rounded-xl transition-all shadow-lg shadow-primary-500/25 hover:from-primary-400 hover:to-primary-500 hover:shadow-primary-500/40 active:scale-[0.97] flex items-center justify-center gap-2;
+  }
+
+  .btn-secondary {
+    @apply bg-zinc-100 hover:bg-zinc-200 dark:bg-white/[0.05] dark:hover:bg-white/[0.09] text-zinc-800 dark:text-slate-200 font-semibold px-5 py-2.5 rounded-xl border border-zinc-200 dark:border-white/10 transition-all active:scale-[0.97] flex items-center justify-center gap-2;
+  }
+
+  .btn-accent {
+    @apply bg-primary-600 hover:bg-primary-700 text-white font-medium px-5 py-2.5 rounded-xl transition-all active:scale-[0.97] flex items-center justify-center gap-2;
+  }
+
+  .btn-ghost {
+    @apply text-zinc-600 dark:text-slate-400 hover:text-primary-500 dark:hover:text-primary-400 font-semibold px-4 py-2 rounded-xl hover:bg-primary-500/10 transition-all flex items-center gap-2;
+  }
+
+  .label-style {
+    @apply text-xs font-bold text-zinc-600 dark:text-slate-400 uppercase tracking-wide;
+  }
+
+  /* ─── Section Labels ─── */
+  .section-label {
+    @apply text-xs font-bold uppercase tracking-widest text-primary-500 mb-2;
+  }
+
+  .section-title {
+    @apply text-3xl font-display font-black text-zinc-950 dark:text-white leading-tight;
+  }
+
+  /* ─── Live Pulse ─── */
+  .live-badge {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-rose-500/10 border border-rose-500/30 text-rose-500;
+  }
+
+  /* ─── Gradient Text ─── */
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary-400 via-primary-500 to-amber-400 bg-clip-text text-transparent;
+  }
+
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+}
+
+/* ─────────────────────── Custom Background Patterns ─────────────────────── */
+
+/* Light mode */
+.mesh-bg {
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(197, 155, 39, 0.07) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(197, 155, 39, 0.04) 0px, transparent 50%);
+}
+
+/* Dark mode */
+.dark .mesh-bg {
+  background-image:
+    radial-gradient(at 0% 0%, rgba(197, 155, 39, 0.12) 0px, transparent 55%),
+    radial-gradient(at 100% 0%, rgba(99, 102, 241, 0.05) 0px, transparent 55%),
+    radial-gradient(at 50% 100%, rgba(197, 155, 39, 0.06) 0px, transparent 50%);
+}
+
+/* ─────────────────────── Dark Mode Hero Grid ─────────────────────── */
+.hero-grid {
+  background-image:
+    linear-gradient(rgba(197,155,39,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(197,155,39,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* ─────────────────────── Glowing Orbs ─────────────────────── */
+.glow-orb-gold {
+  background: radial-gradient(circle, rgba(197,155,39,0.15) 0%, transparent 70%);
+}
+
+.glow-orb-blue {
+  background: radial-gradient(circle, rgba(99,102,241,0.1) 0%, transparent 70%);
+}
+
+/* ─────────────────────── Animated Gradient Border ─────────────────────── */
+.gradient-border {
+  position: relative;
+  background: linear-gradient(135deg, #c59b27, #a7801a, #c59b27);
+  padding: 1px;
+  border-radius: 1rem;
+}
+
+.gradient-border > * {
+  border-radius: calc(1rem - 1px);
+}
+
+/* ─────────────────────── Shimmer Loading ─────────────────────── */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, transparent 30%, rgba(255,255,255,0.05) 50%, transparent 70%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* ─────────────────────── Floating Animation ─────────────────────── */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+.float-anim {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* ─────────────────────── Card hover glow ─────────────────────── */
+@keyframes cardGlow {
+  0%, 100% { box-shadow: 0 0 20px rgba(197,155,39,0); }
+  50% { box-shadow: 0 0 30px rgba(197,155,39,0.12); }
+}
+
+/* ─────────────────────── Bid Flash Animation ─────────────────────── */
+@keyframes bidFlash {
+  0% { background-color: rgba(197,155,39,0.3); }
+  100% { background-color: transparent; }
+}
+
+.bid-flash {
+  animation: bidFlash 1s ease-out;
+}
+
+/* ─────────────────────── Ticker Animation ─────────────────────── */
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.ticker-anim {
+  animation: ticker 30s linear infinite;
+}
+
+/* ─────────────────────── Stats Counter Pulse ─────────────────────── */
+@keyframes statPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+
+/* ─────────────────────── Dark mode text overrides ─────────────────────── */
+.dark .dark-text-primary { color: #f1f5f9; }
+.dark .dark-text-secondary { color: #cbd5e1; }
+.dark .dark-text-muted { color: #94a3b8; }
+.dark .dark-text-accent { color: #c59b27; }
