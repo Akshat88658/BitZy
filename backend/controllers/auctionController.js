@@ -13,9 +13,11 @@ const createAuction = async (req, res, next) => {
       condition,
       startingBid,
       duration,
-      collegeName,
       location
     } = req.body;
+
+    // Fallback: use seller's own collegeName if not sent from frontend
+    const collegeName = req.body.collegeName || req.user.collegeName;
 
     const images = req.files ? req.files.map(file => file.path || file.secure_url) : [];
 
@@ -63,6 +65,7 @@ const createAuction = async (req, res, next) => {
     next(error);
   }
 };
+
 
 // @desc    Get all auctions (with optional filtering)
 // @route   GET /api/auctions
