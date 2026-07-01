@@ -19,7 +19,8 @@ const CreateAuction = () => {
 
   const [form, setForm] = useState({
     title: '', description: '', category: '', condition: '',
-    startingBid: '', duration: '', location: user?.location || ''
+    startingBid: '', duration: '', location: user?.location || '',
+    collegeName: user?.collegeName || ''
   });
   const [images, setImages] = useState([]);
   const [previews, setPreviews] = useState([]);
@@ -233,8 +234,9 @@ const CreateAuction = () => {
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="label-style">College</label>
-              <input value={user?.collegeName || ''} readOnly
-                className="glass-input w-full mt-1.5 opacity-60 cursor-not-allowed" />
+              <input name="collegeName" type="text" placeholder="e.g. IIT Delhi"
+                value={form.collegeName} onChange={handleChange}
+                className="glass-input w-full mt-1.5" required />
             </div>
             <div>
               <label className="label-style">Location / Hostel</label>
